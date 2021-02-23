@@ -6,7 +6,7 @@ target 'Assessment' do
   use_frameworks!
 
   # Pods for Assessment
-     pod 'XMPPFramework/Swift'
+     pod 'XMPPFramework'
 
   target 'AssessmentTests' do
     inherit! :search_paths

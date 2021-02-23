@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		673753F325E4E24F005EFB71 /* AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673753F225E4E24F005EFB71 /* AssessmentTests.swift */; };
 		673753FE25E4E24F005EFB71 /* AssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673753FD25E4E24F005EFB71 /* AssessmentUITests.swift */; };
 		6737542625E4E820005EFB71 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737542525E4E820005EFB71 /* LoginVC.swift */; };
+		6737543825E50F4C005EFB71 /* XMPPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737543725E50F4C005EFB71 /* XMPPClient.swift */; };
 		A27E423A518029DF4EDA4F09 /* Pods_AssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37827F47F9C0FE2AA472D8C /* Pods_AssessmentTests.framework */; };
 		CF902C3999B5C6DBD5F61AA2 /* Pods_Assessment_AssessmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8430C3A25BD59D6A826761 /* Pods_Assessment_AssessmentUITests.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		673753FD25E4E24F005EFB71 /* AssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentUITests.swift; sourceTree = "<group>"; };
 		673753FF25E4E24F005EFB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6737542525E4E820005EFB71 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		6737543725E50F4C005EFB71 /* XMPPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMPPClient.swift; sourceTree = "<group>"; };
 		78242FA1E16968CC13A0ABB3 /* Pods_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A623BEB7865E87BED28439DB /* Pods-AssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssessmentTests.release.xcconfig"; path = "Target Support Files/Pods-AssessmentTests/Pods-AssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		B18054F04D0B0A5788D7A457 /* Pods-Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Assessment/Pods-Assessment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +115,6 @@
 				06B816E98F3F0854D4C18E05 /* Pods-AssessmentTests.debug.xcconfig */,
 				A623BEB7865E87BED28439DB /* Pods-AssessmentTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,14 +143,14 @@
 		673753D725E4E24A005EFB71 /* Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				6737543625E50DC5005EFB71 /* XMPPClient */,
 				6737542225E4E726005EFB71 /* Models */,
+				6737543525E50759005EFB71 /* CoreDataSupportFiles */,
 				6737542025E4E6C8005EFB71 /* Architecture */,
-				6737541F25E4E66C005EFB71 /* CoreDataSupportFiles */,
 				6737541425E4E576005EFB71 /* App */,
 				6737541525E4E58A005EFB71 /* Storyboards */,
 				673753E425E4E24E005EFB71 /* Assets.xcassets */,
 				673753E925E4E24E005EFB71 /* Info.plist */,
-				673753E125E4E24A005EFB71 /* Assessment.xcdatamodeld */,
 			);
 			path = Assessment;
 			sourceTree = "<group>";
@@ -188,13 +189,6 @@
 				673753E625E4E24E005EFB71 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		6737541F25E4E66C005EFB71 /* CoreDataSupportFiles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreDataSupportFiles;
 			sourceTree = "<group>";
 		};
 		6737542025E4E6C8005EFB71 /* Architecture */ = {
@@ -236,6 +230,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		6737543525E50759005EFB71 /* CoreDataSupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				673753E125E4E24A005EFB71 /* Assessment.xcdatamodeld */,
+			);
+			path = CoreDataSupportFiles;
+			sourceTree = "<group>";
+		};
+		6737543625E50DC5005EFB71 /* XMPPClient */ = {
+			isa = PBXGroup;
+			children = (
+				6737543725E50F4C005EFB71 /* XMPPClient.swift */,
+			);
+			path = XMPPClient;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,7 +257,7 @@
 				673753D125E4E24A005EFB71 /* Sources */,
 				673753D225E4E24A005EFB71 /* Frameworks */,
 				673753D325E4E24A005EFB71 /* Resources */,
-				775B96AA5F6F86C6DD6BF8E9 /* [CP] Embed Pods Frameworks */,
+				BD321E2327D66FFA5EB03497 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,7 +295,7 @@
 				673753F525E4E24F005EFB71 /* Sources */,
 				673753F625E4E24F005EFB71 /* Frameworks */,
 				673753F725E4E24F005EFB71 /* Resources */,
-				2C41088A759D2BAD35AB9D7D /* [CP] Embed Pods Frameworks */,
+				84EBA74E6D0C6DDB9893CF94 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -389,23 +399,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2C41088A759D2BAD35AB9D7D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Assessment-AssessmentUITests/Pods-Assessment-AssessmentUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Assessment-AssessmentUITests/Pods-Assessment-AssessmentUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Assessment-AssessmentUITests/Pods-Assessment-AssessmentUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		73DDC4ED3635CC3E9522E992 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,7 +421,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		775B96AA5F6F86C6DD6BF8E9 /* [CP] Embed Pods Frameworks */ = {
+		84EBA74E6D0C6DDB9893CF94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Assessment-AssessmentUITests/Pods-Assessment-AssessmentUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Assessment-AssessmentUITests/Pods-Assessment-AssessmentUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Assessment-AssessmentUITests/Pods-Assessment-AssessmentUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD321E2327D66FFA5EB03497 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -476,6 +486,7 @@
 			files = (
 				673753E325E4E24A005EFB71 /* Assessment.xcdatamodeld in Sources */,
 				673753D925E4E24A005EFB71 /* AppDelegate.swift in Sources */,
+				6737543825E50F4C005EFB71 /* XMPPClient.swift in Sources */,
 				6737542625E4E820005EFB71 /* LoginVC.swift in Sources */,
 				673753DB25E4E24A005EFB71 /* SceneDelegate.swift in Sources */,
 			);
