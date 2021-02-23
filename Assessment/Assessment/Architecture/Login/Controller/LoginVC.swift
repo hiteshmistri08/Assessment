@@ -8,21 +8,19 @@
 import UIKit
 
 class LoginVC: UIViewController {
-    
+    // MARK:- IBOutlet
     @IBOutlet weak var txtEmail: UITextField!
-    
     @IBOutlet weak var txtPassword: UITextField!
+     
     
-    
-    
+    // MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     
-    
+    // MARK:- IBAction
     @IBAction func onBtnLoginAction(_ sender: Any) {
         
     }
