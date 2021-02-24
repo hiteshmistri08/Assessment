@@ -17,9 +17,6 @@ class LoginViewModel {
         self.xmppClient?.setXMPP(delegate: delegate)
     }
     func login(userName:String, password:String) -> Bool {
-        if xmppClient!.checkAlreadyConnected() {
-            return false
-        }
         do {
             try xmppClient?.authanticate(userJID: userName, password: password)
         } catch {

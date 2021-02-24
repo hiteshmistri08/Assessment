@@ -59,6 +59,9 @@ class XMPPClient:NSObject {
         self.xmppStream.addDelegate(delegate, delegateQueue: queue)
     }
     func connect() {
+        if !xmppStream.isDisconnected {
+            disConnect()
+        }
         do {
             try xmppStream.connect(withTimeout: XMPPStreamTimeoutNone)
         } catch {
