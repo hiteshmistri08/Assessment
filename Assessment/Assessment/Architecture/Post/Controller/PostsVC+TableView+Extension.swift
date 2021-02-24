@@ -21,5 +21,10 @@ extension PostsVC:UITableViewDataSource {
 
 // MARK:- UITableViewDelegate
 extension PostsVC : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard postViewModel.posts.count > 0 else {
+            return
+        }
+        performSegue(withIdentifier: PostDetailVC.storyBoardIdentifier, sender: postViewModel.posts[indexPath.row])
+    }
 }

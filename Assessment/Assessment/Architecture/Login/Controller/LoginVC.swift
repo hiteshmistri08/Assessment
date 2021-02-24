@@ -94,7 +94,8 @@ class LoginVC: UIViewController {
 extension LoginVC: XMPPStreamDelegate {
     func xmppStreamDidAuthenticate(_ sender: XMPPStream) {
         isLoading = false
-        self.showAlert(title: "Success!", message: "Login successfully") {
+        self.showAlert(title: "Success!", message: "Login successfully") { [unowned self] in
+            self.view.endEditing(true)
             self.redirectToPostVC()
         }
     }

@@ -16,4 +16,7 @@ struct PostManager {
     func getAll() -> [Post]? {
         return postDataRepository.getAll()
     }
+    func syncPosts(_ posts: Posts) -> Bool {
+        return postDataRepository.syncFilms(posts: posts)
+    }
 }

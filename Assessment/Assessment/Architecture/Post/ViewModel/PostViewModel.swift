@@ -23,19 +23,20 @@ class PostViewModel {
                 do {
                     let response = try JSONDecoder().newJSONDecoder().decode(Posts.self, from: data)
                     self?.posts += response
+                    self?.syncPosts()
                 } catch {
                     debugPrint("\(url) Error is:- ",error.localizedDescription)
                 }
             }
             DispatchQueue.main.async {
-                self?.syncPosts()
                 completion(error)
             }
         }
     }
     
     private func syncPosts() {
-        posts.forEach{_ = postManager.create($0)}        
+       let isSync = postManager.syncPosts(self.posts)
+        debugPrint("database sync :- ",isSync)
     }
     
     

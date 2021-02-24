@@ -62,4 +62,58 @@ struct PostDataRepository:PostRepository {
         }
         return nil
     }
+    
+    
+    func syncFilms(posts: [Post]) -> Bool {
+        let taskContext = PersistentStorage.shared.persistentContainer.newBackgroundContext()
+        taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        taskContext.undoManager = nil
+        
+        var successfull = false
+        taskContext.performAndWait {
+            let matchingEpisodeRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CDPost")
+            let postIds = posts.map{Int16($0.id)}
+            matchingEpisodeRequest.predicate = NSPredicate(format: "id in %@", argumentArray: [postIds])
+            
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: matchingEpisodeRequest)
+            batchDeleteRequest.resultType = .resultTypeObjectIDs
+            
+            do {
+                let batchDeleteResult = try taskContext.execute(batchDeleteRequest) as? NSBatchDeleteResult
+                
+                if let deletedObjectIDs = batchDeleteResult?.result as? [NSManagedObjectID] {
+                    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: deletedObjectIDs],
+                                                        into: [PersistentStorage.shared.context])
+                }
+            } catch {
+                debugPrint("Error: \(error)\nCould not batch delete existing records.")
+                return
+            }
+            
+            // Create new.
+            
+            for item in posts {
+                
+                guard let cdPost = NSEntityDescription.insertNewObject(forEntityName: "CDPost", into: taskContext) as? CDPost else {
+                    debugPrint("Error: Failed to create a new post object!")
+                    return
+                }
+                cdPost.userID = Int16(item.userID)
+                cdPost.title = item.title
+                cdPost.body = item.body
+            }
+            
+            if taskContext.hasChanges {
+                do {
+                    try taskContext.save()
+                } catch {
+                    debugPrint("Error: \(error)\nCould not save Core Data context.")
+                }
+                taskContext.reset()
+            }
+            successfull = true
+        }
+        return successfull
+    }
+    
 }
