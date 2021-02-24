@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+let BaseURL = "https://jsonplaceholder.typicode.com/"
+
+struct ServerEndPoint {
+    private init() {}
+    static let posts = BaseURL + "posts"
+}
