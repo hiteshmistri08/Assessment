@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import CoreData
+
 struct PostManager {
     private let postDataRepository = PostDataRepository()
     func create(_ record:Post) -> Bool {

@@ -67,6 +67,11 @@ class LoginVC: UIViewController {
         isLoginEnable = validate()
     }
     
+    func redirectToPostVC() {
+        let vc = StoryBorads.main.instantiateViewController(withIdentifier: PostsVC.storyBoardIdentifier) as! PostsVC
+        self.navigationController?.setViewControllers([vc], animated: false)
+    }
+    
     // MARK:- IBAction
     @IBAction func onBtnLoginAction(_ sender: Any) {
         let email = txtEmail.text ?? ""
@@ -90,7 +95,7 @@ extension LoginVC: XMPPStreamDelegate {
     func xmppStreamDidAuthenticate(_ sender: XMPPStream) {
         isLoading = false
         self.showAlert(title: "Success!", message: "Login successfully") {
-           self.dismiss(animated: true, completion: nil)
+            self.redirectToPostVC()
         }
     }
     
