@@ -25,6 +25,9 @@
 		6742390725E60D5400D9C2D7 /* CDPost+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6742390525E60D5400D9C2D7 /* CDPost+CoreDataClass.swift */; };
 		6742390825E60D5400D9C2D7 /* CDPost+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6742390625E60D5400D9C2D7 /* CDPost+CoreDataProperties.swift */; };
 		6742390E25E60DA500D9C2D7 /* CDPost+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6742390D25E60DA500D9C2D7 /* CDPost+Extension.swift */; };
+		6742391725E611C200D9C2D7 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6742391625E611C200D9C2D7 /* PersistentStorage.swift */; };
+		6742391E25E6154700D9C2D7 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6742391D25E6154700D9C2D7 /* BaseRepository.swift */; };
+		6742392325E6169700D9C2D7 /* PostDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6742392225E6169700D9C2D7 /* PostDataRepository.swift */; };
 		A27E423A518029DF4EDA4F09 /* Pods_AssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37827F47F9C0FE2AA472D8C /* Pods_AssessmentTests.framework */; };
 		CF902C3999B5C6DBD5F61AA2 /* Pods_Assessment_AssessmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8430C3A25BD59D6A826761 /* Pods_Assessment_AssessmentUITests.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +75,9 @@
 		6742390525E60D5400D9C2D7 /* CDPost+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPost+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6742390625E60D5400D9C2D7 /* CDPost+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPost+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6742390D25E60DA500D9C2D7 /* CDPost+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDPost+Extension.swift"; sourceTree = "<group>"; };
+		6742391625E611C200D9C2D7 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		6742391D25E6154700D9C2D7 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		6742392225E6169700D9C2D7 /* PostDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataRepository.swift; sourceTree = "<group>"; };
 		78242FA1E16968CC13A0ABB3 /* Pods_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A623BEB7865E87BED28439DB /* Pods-AssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssessmentTests.release.xcconfig"; path = "Target Support Files/Pods-AssessmentTests/Pods-AssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		B18054F04D0B0A5788D7A457 /* Pods-Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Assessment/Pods-Assessment.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +257,7 @@
 		6737543525E50759005EFB71 /* CoreDataSupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				6742391B25E6151D00D9C2D7 /* Repository */,
 				6742391225E6101A00D9C2D7 /* PersistentStorage */,
 				6742390C25E60D8100D9C2D7 /* CDExtension */,
 				674238FA25E60CDE00D9C2D7 /* NSManagedObjectModels */,
@@ -303,8 +310,18 @@
 		6742391225E6101A00D9C2D7 /* PersistentStorage */ = {
 			isa = PBXGroup;
 			children = (
+				6742391625E611C200D9C2D7 /* PersistentStorage.swift */,
 			);
 			path = PersistentStorage;
+			sourceTree = "<group>";
+		};
+		6742391B25E6151D00D9C2D7 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				6742391D25E6154700D9C2D7 /* BaseRepository.swift */,
+				6742392225E6169700D9C2D7 /* PostDataRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,13 +567,16 @@
 				6742390E25E60DA500D9C2D7 /* CDPost+Extension.swift in Sources */,
 				673753D925E4E24A005EFB71 /* AppDelegate.swift in Sources */,
 				6737543825E50F4C005EFB71 /* XMPPClient.swift in Sources */,
+				6742392325E6169700D9C2D7 /* PostDataRepository.swift in Sources */,
 				6737542625E4E820005EFB71 /* LoginVC.swift in Sources */,
 				673753DB25E4E24A005EFB71 /* SceneDelegate.swift in Sources */,
 				6742390825E60D5400D9C2D7 /* CDPost+CoreDataProperties.swift in Sources */,
+				6742391E25E6154700D9C2D7 /* BaseRepository.swift in Sources */,
 				6742390725E60D5400D9C2D7 /* CDPost+CoreDataClass.swift in Sources */,
 				674238F625E607F500D9C2D7 /* Post.swift in Sources */,
 				6737545A25E51D42005EFB71 /* Constant.swift in Sources */,
 				6737545F25E521B8005EFB71 /* LoginViewModel.swift in Sources */,
+				6742391725E611C200D9C2D7 /* PersistentStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
